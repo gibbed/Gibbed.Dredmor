@@ -137,6 +137,11 @@ namespace Gibbed.Dredmor.ConvertSprites
                                     frame.Palette[k + 1],
                                     frame.Palette[k + 2]);
                             }
+                            palette.Entries[0] = Color.FromArgb(
+                                0,
+                                palette.Entries[0].R,
+                                palette.Entries[0].G,
+                                palette.Entries[0].B);
                             bitmap.Palette = palette;
 
                             var data = bitmap.LockBits(area, ImageLockMode.WriteOnly, bitmap.PixelFormat);
