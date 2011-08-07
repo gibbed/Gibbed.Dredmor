@@ -37,7 +37,7 @@ namespace Gibbed.Dredmor.Maximap.Game
         //private const uint LevelAddress = 0x005482A0;
         //private const uint PlayerAddress = 0x005493D8;
 
-        // 1.03
+        // 1.0.3.1 (hotfix)
         private const uint LevelAddress = 0x0054C580;
         private const uint PlayerAddress = 0x0054D6C8;
 

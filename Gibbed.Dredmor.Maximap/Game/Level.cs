@@ -38,7 +38,7 @@ namespace Gibbed.Dredmor.Maximap.Game
         public Square[,] Squares { get; private set; }
         public List<string> RoomNames = new List<string>();
 
-        // 1.03
+        // 1.0.3.1 (hotfix)
         private const uint OffsetRoomNamesStart = 0x14;
         private const uint OffsetRoomNamesEnd = 0x18;
         private const uint OffsetSquares = 0x00;

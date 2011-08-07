@@ -27,7 +27,7 @@ namespace Gibbed.Dredmor.Maximap.Game
         public int X;
         public int Y;
 
-        // 1.03
+        // 1.0.3.1 (hotfix)
         private const uint OffsetX = 0x50;
         private const uint OffsetY = 0x54;
 

@@ -55,6 +55,7 @@ namespace Gibbed.Dredmor.Maximap.Game
 
         public static Square Read(byte[] data, int offset, ProcessMemory memory)
         {
+            // 1.0.3.1 (hotfix)
             var square = new Square();
             square.Tile = (Tile)data[offset + 0x00];
             square.Room = data[offset + 0x01];
@@ -86,22 +87,22 @@ namespace Gibbed.Dredmor.Maximap.Game
 
             foreach (var element in square.Objects.Elements)
             {
-                var objectType = (GameObjectType)memory.ReadU32(element);
+                var objectType = (ClassVTableAddress)memory.ReadU32(element);
                 switch (objectType)
                 {
-                    case GameObjectType.DredmorStatue:
+                    case ClassVTableAddress.DredmorStatue:
                     {
                         square.HasDredmorStatue = true;
                         break;
                     }
 
-                    case GameObjectType.UberChest:
+                    case ClassVTableAddress.UberChest:
                     {
                         square.HasUberChest = true;
                         break;
                     }
 
-                    case GameObjectType.Monster:
+                    case ClassVTableAddress.Monster:
                     {
                         if (square.BossMonster.HasValue == false)
                         {
@@ -133,7 +134,7 @@ namespace Gibbed.Dredmor.Maximap.Game
                         break;
                     }
 
-                    case GameObjectType.Misc:
+                    case ClassVTableAddress.Misc:
                     {
                         if (square.QuestItem.HasValue == false)
                         {
