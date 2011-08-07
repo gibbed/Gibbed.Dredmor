@@ -1,0 +1,4 @@
+﻿- Add versioning support to detect game version
+  (and use version-specific information from it)
+- Redo map rendering code? It's horrible.
+- Fix chest, statue, etc so they don't display when used up.

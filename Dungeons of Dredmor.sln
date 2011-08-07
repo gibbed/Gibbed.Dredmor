@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Helpers", "Gibbed.He
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDesk.Options", "NDesk.Options\NDesk.Options.csproj", "{C98A6CD6-9422-4B35-8B7A-F520D75534D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Dredmor.Maximap", "Gibbed.Dredmor.Maximap\Gibbed.Dredmor.Maximap.csproj", "{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{C98A6CD6-9422-4B35-8B7A-F520D75534D1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C98A6CD6-9422-4B35-8B7A-F520D75534D1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C98A6CD6-9422-4B35-8B7A-F520D75534D1}.Release|x86.ActiveCfg = Release|Any CPU
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Debug|x86.ActiveCfg = Debug|x86
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Debug|x86.Build.0 = Debug|x86
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Release|Any CPU.ActiveCfg = Release|x86
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Release|x86.ActiveCfg = Release|x86
+		{C22744F3-6D15-4FCE-9DE5-7320F6CEE585}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
