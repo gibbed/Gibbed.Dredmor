@@ -52,6 +52,7 @@
     <Compile Include="Game\Square.cs" />
     <Compile Include="Game\State.cs" />
     <Compile Include="Game\StdList.cs" />
+    <Compile Include="Game\StdString.cs" />
     <Compile Include="Game\StdVector.cs" />
     <Compile Include="Game\Tile.cs" />
     <Compile Include="ProcessMemory.cs" />

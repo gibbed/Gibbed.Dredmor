@@ -20,6 +20,7 @@
  *    distribution.
  */
 
+using System;
 using System.Diagnostics;
 
 namespace Gibbed.Dredmor.Maximap.Game
@@ -56,15 +57,20 @@ namespace Gibbed.Dredmor.Maximap.Game
                     return null;
                 }
 
-                var state = new State();
+                if (memory.MainModuleAddress != 0x00400000)
+                {
+                    throw new InvalidOperationException("main module address is not 0x00400000 (ASLR is on?)");
+                }
 
-                var levelAddress = memory.ReadU32(LevelAddress);
-                state.CurrentLevel = levelAddress == 0 ?
-                    null : Level.Read(memory, levelAddress);
+                var state = new State();
 
                 var playerAddress = memory.ReadU32(PlayerAddress);
                 state.Player = playerAddress == 0 ?
                     null : Player.Read(memory, playerAddress);
+
+                var levelAddress = memory.ReadU32(LevelAddress);
+                state.CurrentLevel = levelAddress == 0 ?
+                    null : Level.Read(memory, levelAddress);
 
                 return state;
             }

@@ -370,7 +370,20 @@ namespace Gibbed.Dredmor.Maximap
 
         private void OnUpdate(object sender, EventArgs e)
         {
-            this._State = Game.State.ReadState();
+            try
+            {
+                this._State = Game.State.ReadState();
+            }
+            catch (Exception x)
+            {
+                this._State = null;
+                MessageBox.Show(
+                    x.ToString(),
+                    "Error!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
             this.UpdateState();
             this.RenderLevel();
             this.PaintLevel();

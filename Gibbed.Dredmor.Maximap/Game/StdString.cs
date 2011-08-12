@@ -21,30 +21,33 @@
  */
 
 using System;
+using System.Text;
 
 namespace Gibbed.Dredmor.Maximap.Game
 {
-    internal class Player
+    internal static class StdString
     {
-        public int X;
-        public int Y;
-
-        // 1.0.3.1 (hotfix)
-        private const uint OffsetX = 0x50;
-        private const uint OffsetY = 0x54;
-
-        public static Player Read(ProcessMemory memory, uint baseAddress)
+        public static string Read(ProcessMemory memory, uint baseAddress)
         {
-            if ((ClassVTableAddress)memory.ReadU32(baseAddress + 0x00) !=
-                ClassVTableAddress.Player)
+            var length = memory.ReadU32(baseAddress + 0x10);
+
+            uint valueAddress;
+            if (length < 16)
             {
-                throw new InvalidOperationException("player class vtable mismatch, outdated class vtable addresses?");
+                valueAddress = baseAddress + 0x00;
+            }
+            else
+            {
+                valueAddress = memory.ReadU32(baseAddress + 0x00);
             }
 
-            var player = new Player();
-            player.X = memory.ReadS32(baseAddress + OffsetX);
-            player.Y = memory.ReadS32(baseAddress + OffsetY);
-            return player;
+            var valueBytes = new byte[length];
+            if (memory.Read(valueAddress, ref valueBytes) != valueBytes.Length)
+            {
+                throw new InvalidOperationException();
+            }
+
+            return Encoding.ASCII.GetString(valueBytes, 0, valueBytes.Length);
         }
     }
 }

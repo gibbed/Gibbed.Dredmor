@@ -108,27 +108,23 @@ namespace Gibbed.Dredmor.Maximap.Game
                         {
                             if (memory.ReadU32(element + 0x11C) == 1)
                             {
-                                var nameLength = memory.ReadU32(element + 0x434 + 0x10);
-
-                                uint nameAddress;
-                                if (nameLength < 16)
+                                square.BossMonster = element;
+                                square.BossMonsterName = StdString.Read(memory, element + 0x434);
+                            }
+                            /*
+                            else
+                            {
+                                var templatePointer = memory.ReadU32(element + 0x388);
+                                if (templatePointer == 0)
                                 {
-                                    nameAddress = element + 0x434 + 0x00;
+                                    name = "Monster";
                                 }
                                 else
                                 {
-                                    nameAddress = memory.ReadU32(element + 0x434 + 0x00);
+                                    name = StdString.Read(memory, templatePointer + 0x64);
                                 }
-
-                                var name = new byte[nameLength];
-                                if (memory.Read(nameAddress, ref name) != name.Length)
-                                {
-                                    throw new InvalidOperationException();
-                                }
-
-                                square.BossMonster = element;
-                                square.BossMonsterName = Encoding.ASCII.GetString(name, 0, name.Length);
                             }
+                            */
                         }
 
                         break;
@@ -141,26 +137,8 @@ namespace Gibbed.Dredmor.Maximap.Game
                             // quest item
                             if (memory.ReadU32(element + 0x6C) == 3)
                             {
-                                var nameLength = memory.ReadU32(element + 0x254 + 0x10);
-
-                                uint nameAddress;
-                                if (nameLength < 16)
-                                {
-                                    nameAddress = element + 0x254 + 0x00;
-                                }
-                                else
-                                {
-                                    nameAddress = memory.ReadU32(element + 0x254 + 0x00);
-                                }
-
-                                var name = new byte[nameLength];
-                                if (memory.Read(nameAddress, ref name) != name.Length)
-                                {
-                                    throw new InvalidOperationException();
-                                }
-
                                 square.QuestItem = element;
-                                square.QuestItemName = Encoding.ASCII.GetString(name, 0, name.Length);
+                                square.QuestItemName = StdString.Read(memory, element + 0x254);
                             }
                         }
 
